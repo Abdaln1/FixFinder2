@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: fixfinder-backend
+    env: node
+    plan: free
+    repo: https://github.com/Abdaln1/FixFinder.git
+    branch: main
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+
+  - type: static
+    name: fixfinder-frontend
+    repo: https://github.com/Abdaln1/FixFinder.git
+    branch: main
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/dist
